@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{40644EEE-4D7F-4800-B68D-9087AFBA0E49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{FFE18EAD-92AA-46EF-80C9-1BC233424235}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHub Actions", "GitHub Actions", "{8578EFB1-3D7D-46B6-A63B-A2B147064E21}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\BuildAndTest.yaml = .github\workflows\BuildAndTest.yaml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{025CA634-2F95-41E8-BA9A-40968347B898}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CrudApi.Testing", "CrudApi.Testing", "{A9E5EBD2-F136-4009-8BA3-183C3FACC9EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integration", "Integration\Integration.csproj", "{8E2954D8-CE9F-4CEB-9A6D-7E4265E8B320}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unit", "Unit\Unit.csproj", "{7C28337B-AF4E-414E-B329-315C86E36975}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework", "Framework\Framework.csproj", "{7B6E7B98-1DF9-45DC-9175-9204FA03FE8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "Persistence\Persistence.csproj", "{B273D8EC-7849-47B2-A93E-BDC2F0A6EF3C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40644EEE-4D7F-4800-B68D-9087AFBA0E49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40644EEE-4D7F-4800-B68D-9087AFBA0E49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40644EEE-4D7F-4800-B68D-9087AFBA0E49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40644EEE-4D7F-4800-B68D-9087AFBA0E49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFE18EAD-92AA-46EF-80C9-1BC233424235}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFE18EAD-92AA-46EF-80C9-1BC233424235}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFE18EAD-92AA-46EF-80C9-1BC233424235}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFE18EAD-92AA-46EF-80C9-1BC233424235}.Release|Any CPU.Build.0 = Release|Any CPU
+		{025CA634-2F95-41E8-BA9A-40968347B898}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{025CA634-2F95-41E8-BA9A-40968347B898}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{025CA634-2F95-41E8-BA9A-40968347B898}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{025CA634-2F95-41E8-BA9A-40968347B898}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E2954D8-CE9F-4CEB-9A6D-7E4265E8B320}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E2954D8-CE9F-4CEB-9A6D-7E4265E8B320}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E2954D8-CE9F-4CEB-9A6D-7E4265E8B320}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E2954D8-CE9F-4CEB-9A6D-7E4265E8B320}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C28337B-AF4E-414E-B329-315C86E36975}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C28337B-AF4E-414E-B329-315C86E36975}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C28337B-AF4E-414E-B329-315C86E36975}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C28337B-AF4E-414E-B329-315C86E36975}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B6E7B98-1DF9-45DC-9175-9204FA03FE8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B6E7B98-1DF9-45DC-9175-9204FA03FE8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B6E7B98-1DF9-45DC-9175-9204FA03FE8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B6E7B98-1DF9-45DC-9175-9204FA03FE8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B273D8EC-7849-47B2-A93E-BDC2F0A6EF3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B273D8EC-7849-47B2-A93E-BDC2F0A6EF3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B273D8EC-7849-47B2-A93E-BDC2F0A6EF3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B273D8EC-7849-47B2-A93E-BDC2F0A6EF3C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8E2954D8-CE9F-4CEB-9A6D-7E4265E8B320} = {A9E5EBD2-F136-4009-8BA3-183C3FACC9EE}
+		{7C28337B-AF4E-414E-B329-315C86E36975} = {A9E5EBD2-F136-4009-8BA3-183C3FACC9EE}
+		{7B6E7B98-1DF9-45DC-9175-9204FA03FE8C} = {A9E5EBD2-F136-4009-8BA3-183C3FACC9EE}
+	EndGlobalSection
+EndGlobal
