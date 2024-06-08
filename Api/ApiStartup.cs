@@ -30,7 +30,6 @@ public class ApiStartup(WebApplicationBuilder Builder)
         }
 
         app.UseMiddleware<ExceptionMiddleware>();
-        app.UseHttpsRedirection();
         app.UseAuthorization();
         app.MapControllers();
         return app;
