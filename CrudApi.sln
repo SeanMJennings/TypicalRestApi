@@ -13,9 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CrudApi.Testing", "CrudApi.Testing", "{A9E5EBD2-F136-4009-8BA3-183C3FACC9EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integration", "Integration\Integration.csproj", "{8E2954D8-CE9F-4CEB-9A6D-7E4265E8B320}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing.Integration", "Testing.Integration\Testing.Integration.csproj", "{8E2954D8-CE9F-4CEB-9A6D-7E4265E8B320}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unit", "Unit\Unit.csproj", "{7C28337B-AF4E-414E-B329-315C86E36975}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing.Unit", "Testing.Unit\Testing.Unit.csproj", "{7C28337B-AF4E-414E-B329-315C86E36975}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework", "Framework\Framework.csproj", "{7B6E7B98-1DF9-45DC-9175-9204FA03FE8C}"
 EndProject

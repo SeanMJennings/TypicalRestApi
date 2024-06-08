@@ -1,7 +1,7 @@
 ﻿namespace Api.Requests;
 
-public class UserPayload
+public class UserPayload(string name, string email)
 {
-    public string Name { get; set; }
-    public string Email { get; set; }
+    public string Name { get; set; } = name;
+    public string Email { get; set; } = email;
 }
