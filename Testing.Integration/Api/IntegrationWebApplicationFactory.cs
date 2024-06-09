@@ -11,11 +11,11 @@ public class IntegrationWebApplicationFactory<TProgram>(IAmAUserService UserServ
 {
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
-        builder.ConfigureServices(services =>
+        builder.ConfigureTestServices(services =>
         {
-            builder.ConfigureTestServices(c => c.AddScoped<IAmAUserService>(_ => UserService));
+            services.AddScoped<IAmAUserService>(_ => UserService);
         });
 
-        builder.UseEnvironment("Development");
+        builder.UseEnvironment("Test");
     }
 }

@@ -27,7 +27,7 @@ public partial class UserServiceSpecs
       Given(an_entity_exists);
       And(another_entity_with_same_id);
       When(Validating(saving_another_entity));
-      Then(Informs("User with same ID already exists"));
+      Then(Informs("Fake with same ID already exists"));
    }
    
    [Test]

@@ -27,7 +27,7 @@ public partial class UserControllerSpecs
         Given(a_user_exists);
         And(a_request_to_update_the_user);
         When(updating_the_user);
-        And(requesting_the_user);
+        And(requesting_the_updated_user);
         Then(the_user_is_updated);
     }    
     
@@ -37,7 +37,7 @@ public partial class UserControllerSpecs
         Given(a_user_exists);
         And(a_request_to_delete_the_user);
         When(deleting_the_user);
-        And(requesting_the_user);
+        And(requesting_the_deleted_user);
         Then(the_user_is_not_found);
     }
     
