@@ -14,7 +14,6 @@ Implement CRUD (Create, Read, Update and Delete) functionality and the correspon
 
 ## Ideas for expansion
 - Add more details to user: password (hashed) address and mobile.
-- Prevent potential for email regex DDOS - https://learn.microsoft.com/en-us/dotnet/standard/base-types/how-to-verify-that-strings-are-in-valid-email-format
 - Consider alternative ORM to entity framework like Dapper for simplicity.
 - Add logging.
 - Connect to database outside application.

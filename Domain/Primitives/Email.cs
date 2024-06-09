@@ -16,7 +16,7 @@ public readonly record struct Email
             {
                 errors.Add("Email cannot be empty");
             }
-            else if (!Regex.IsMatch(email,@"^[^@\s]+@[^@\s]+\.[^@\s]+$", RegexOptions.IgnoreCase))
+            else if (!Regex.IsMatch(email,@"^[^@\s]+@[^@\s]+\.[^@\s]+$", RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250)))
             {
                 errors.Add("Email must be valid");
             }
