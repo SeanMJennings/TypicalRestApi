@@ -19,7 +19,7 @@ public partial class UserControllerSpecs
         Given(an_invalid_request_to_create_a_user);
         When(creating_the_invalid_user);
         Then(the_user_is_informed_of_validation_errors);
-    }    
+    }
     
     [Test]
     public void can_update_user()

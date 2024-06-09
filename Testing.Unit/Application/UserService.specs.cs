@@ -31,19 +31,19 @@ public partial class UserServiceSpecs
    }
    
    [Test]
-   public void can_remove_entity()
+   public void can_remove_user()
    {
       Given(a_user_exists);
-      When(removing_an_entity);
+      When(removing_an_user);
       And(retrieving_a_user);
-      Then(the_entity_is_null);
+      Then(the_user_is_null);
    }
 
    [Test]
-   public void can_list_entities()
+   public void can_list_users()
    {
       Given(a_user_exists);
-      And(another_entity_exists);
+      And(another_user_exists);
       When(listing_entities);
       Then(the_list_is_correct);
    }

@@ -1,4 +1,5 @@
-﻿using Application;
+﻿using Api.Middleware;
+using Application;
 using Domain.Entities;
 using Domain.Primitives;
 using Persistence;

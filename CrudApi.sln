@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing.Integration", "Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing.Unit", "Testing.Unit\Testing.Unit.csproj", "{7C28337B-AF4E-414E-B329-315C86E36975}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework", "Framework\Framework.csproj", "{7B6E7B98-1DF9-45DC-9175-9204FA03FE8C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing.Framework", "Testing.Framework\Testing.Framework.csproj", "{7B6E7B98-1DF9-45DC-9175-9204FA03FE8C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "Persistence\Persistence.csproj", "{B273D8EC-7849-47B2-A93E-BDC2F0A6EF3C}"
 EndProject

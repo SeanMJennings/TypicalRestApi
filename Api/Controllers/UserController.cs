@@ -16,15 +16,18 @@ public class UserController(IAmAUserService UserService) : ControllerBase
     }    
     
     [HttpGet("{id:guid}")]
-    public async Task<User?> GetUser(Guid id)
+    public async Task<ActionResult<User>> GetUser(Guid id)
     {
-        return await UserService.Get(id);
+        var user = await UserService.Get(id);
+        if (user is null) return NotFound();
+        return user;
     }    
     
     [HttpPost]
-    public async Task<Guid> CreateUser([FromBody] UserPayload payload)
+    public async Task<ActionResult<Guid>> CreateUser([FromBody] UserPayload payload)
     {
-        return await UserService.Add(payload.Name, payload.Email);
+        var id = await UserService.Add(payload.Name, payload.Email);
+        return Created($"/{Routes.User}/{id}", id);
     }    
     
     [HttpPut("{id:guid}")]
@@ -34,7 +37,7 @@ public class UserController(IAmAUserService UserService) : ControllerBase
     }    
     
     [HttpDelete("{id:guid}")]
-    public async Task UpdateUser(Guid id)
+    public async Task DeleteUser(Guid id)
     {
         await UserService.Remove(id);
     }

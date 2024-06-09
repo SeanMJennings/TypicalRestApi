@@ -2,7 +2,7 @@
 using System.Net;
 using Newtonsoft.Json;
 
-namespace Api;
+namespace Api.Middleware;
 
 public class ExceptionMiddleware(RequestDelegate NextRequest)
 {

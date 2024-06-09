@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Text;
 using Api;
+using Api.Middleware;
 using Application;
 using Domain.Entities;
 using FluentAssertions;
@@ -20,15 +21,16 @@ public partial class UserControllerSpecs : DbSpecification<User>
 
     private Guid id;
     private Guid another_id;
+    private HttpStatusCode created_response_code;
     private HttpStatusCode response_code;
     private HttpResponseMessage the_failed_response = null!;
     private const string application_json = "application/json";
-    private const string name = "wibble";
-    private const string email = "wobble@gmail.com";    
-    private readonly string invalid_name = string.Empty;
-    private const string invalid_email = "oops";
-    private const string new_name = "wobble";
-    private const string new_email = "wibble@gmail.com";
+    protected const string name = "wibble";
+    protected const string email = "wobble@gmail.com";    
+    protected readonly string invalid_name = string.Empty;
+    protected const string invalid_email = "oops";
+    protected const string new_name = "wobble";
+    protected const string new_email = "wibble@gmail.com";
     
     protected override void before_each()
     {
@@ -73,7 +75,7 @@ public partial class UserControllerSpecs : DbSpecification<User>
     private void creating_the_user()
     {
         var response = client.PostAsync(Routes.User, content).GetAwaiter().GetResult();
-        response_code = response.StatusCode;
+        created_response_code = response.StatusCode;
         id = JsonConvert.DeserializeObject<Guid>(response.Content.ReadAsStringAsync().GetAwaiter().GetResult());
     }    
     
@@ -113,18 +115,22 @@ public partial class UserControllerSpecs : DbSpecification<User>
 
     private void requesting_the_user()
     {
-        content = client.GetAsync(Routes.User + $"/{id}").GetAwaiter().GetResult().Content;
-    }    
+        var response = client.GetAsync(Routes.User + $"/{id}").GetAwaiter().GetResult();
+        response_code = response.StatusCode;
+        content = response.Content;
+    }
     
     private void listing_the_users()
     {
-        content = client.GetAsync(Routes.User).GetAwaiter().GetResult().Content;
+        var response = client.GetAsync(Routes.User).GetAwaiter().GetResult();
+        response_code = response.StatusCode;
+        content = response.Content;
     }
 
     private void the_user_is_created()
     {
         var user = JsonConvert.DeserializeObject<User>(content.ReadAsStringAsync().GetAwaiter().GetResult());
-        response_code.Should().Be(HttpStatusCode.OK);
+        created_response_code.Should().Be(HttpStatusCode.Created);
         user!.Id.Should().Be(id);
         user.Name.ToString().Should().Be(name);
         user.Email.ToString().Should().Be(email);
@@ -162,7 +168,6 @@ public partial class UserControllerSpecs : DbSpecification<User>
     
     private void the_user_is_not_found()
     {
-        var user = JsonConvert.DeserializeObject<User>(content.ReadAsStringAsync().GetAwaiter().GetResult());
-        user.Should().BeNull();
+        response_code.Should().Be(HttpStatusCode.NotFound);
     }
 }

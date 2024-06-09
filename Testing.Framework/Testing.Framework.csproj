@@ -6,6 +6,7 @@
         <Nullable>enable</Nullable>
         <LangVersion>default</LangVersion>
         <OutputType>Library</OutputType>
+        <RootNamespace>Framework</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

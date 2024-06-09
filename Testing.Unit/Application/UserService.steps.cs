@@ -54,7 +54,7 @@ public partial class UserServiceSpecs : DbSpecification<User>
         adding_a_user();
     }
 
-    private void another_entity_exists()
+    private void another_user_exists()
     {
         saving_another_user();
     }    
@@ -74,7 +74,7 @@ public partial class UserServiceSpecs : DbSpecification<User>
         entities = userService.GetAll().GetAwaiter().GetResult();
     }     
     
-    private void removing_an_entity()
+    private void removing_an_user()
     {
         userService.Remove(id).GetAwaiter().GetResult();
     }    
@@ -93,7 +93,7 @@ public partial class UserServiceSpecs : DbSpecification<User>
         retrieved_entity.Email.ToString().Should().Be(new_email);
     }    
     
-    private void the_entity_is_null()
+    private void the_user_is_null()
     {
         retrieved_entity.Should().Be(null);
     }    
