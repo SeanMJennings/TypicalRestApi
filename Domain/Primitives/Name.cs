@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.RegularExpressions;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Domain.Primitives;
@@ -13,7 +14,11 @@ public readonly record struct Name
         {
             if (string.IsNullOrEmpty(name))
             {
-                errors.Add("User name cannot be empty");
+                errors.Add("Name cannot be empty");
+            }
+            else if (Regex.IsMatch(name,@"[^a-zA-Z\s]", RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250)))
+            {
+                errors.Add("Name can only have alphabetical characters");
             }
         });
         value = name;

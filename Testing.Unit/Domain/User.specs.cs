@@ -12,7 +12,7 @@ public partial class UserSpecs
             Given(valid_inputs);
             And(a_null_user_name);
             When(Validating(creating_a_user));
-            Then(Informs("User name cannot be empty"));
+            Then(Informs("Name cannot be empty"));
         });        
         
         Scenario(() =>
@@ -20,8 +20,16 @@ public partial class UserSpecs
             Given(valid_inputs);
             And(an_empty_user_name);
             When(Validating(creating_a_user));
-            Then(Informs("User name cannot be empty"));
+            Then(Informs("Name cannot be empty"));
         });
+        
+        Scenario(() =>
+        {
+            Given(valid_inputs);
+            And(a_user_name_with_non_alphabetical_characters);
+            When(Validating(creating_a_user));
+            Then(Informs("Name can only have alphabetical characters"));
+        }); 
     }    
     
     [Test]

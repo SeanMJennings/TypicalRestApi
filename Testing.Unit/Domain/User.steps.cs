@@ -12,6 +12,7 @@ public partial class UserSpecs : Specification
     private User user = null!;
 
     private const string invalid_email = "wibble";
+    private const string invalid_name = "Jackie Chan 123";
     private const string valid_email = "wibble@wobble.com";
     private const string valid_name = "Jackie Chan";
 
@@ -38,6 +39,11 @@ public partial class UserSpecs : Specification
     private void an_empty_user_name()
     {
         name = string.Empty;
+    }     
+    
+    private void a_user_name_with_non_alphabetical_characters()
+    {
+        name = invalid_name;
     }    
     
     private void a_null_email()
