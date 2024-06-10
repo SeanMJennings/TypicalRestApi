@@ -39,6 +39,8 @@ public partial class UserControllerSpecs : DbSpecification<User>
     protected override void before_all()
     {
         user_service = Substitute.For<IAmAUserService>();
+        factory = new IntegrationWebApplicationFactory<Program>(user_service);
+        client = factory.CreateClient();
     }
     
     protected override void before_each()
@@ -49,8 +51,6 @@ public partial class UserControllerSpecs : DbSpecification<User>
         the_failed_response = null!;
         user_service.ClearReceivedCalls();
         user_service.ClearSubstitute();
-        factory = new IntegrationWebApplicationFactory<Program>(user_service);
-        client = factory.CreateClient();
     }
 
     private void a_request_to_create_a_user()
