@@ -1,5 +1,6 @@
 ﻿using Api.Middleware;
 using Application;
+using Domain;
 using Domain.Entities;
 using Domain.Primitives;
 using Persistence;
@@ -12,8 +13,7 @@ public class ApiStartup(WebApplicationBuilder Builder)
     {
         Builder.Services.AddControllers().AddNewtonsoftJson(options =>
         {
-            options.SerializerSettings.Converters.Add(new NameConverter());
-            options.SerializerSettings.Converters.Add(new EmailConverter());
+            Converters.AddConverters(options.SerializerSettings.Converters);
         });
         Builder.Services.AddEndpointsApiExplorer();
         Builder.Services.AddSwaggerGen();
