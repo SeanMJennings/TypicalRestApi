@@ -16,17 +16,21 @@ public class ExceptionMiddleware(RequestDelegate NextRequest)
         }
         catch (Exception e)
         {
-            await HandleException(httpContext, e);
+            var handled = await HandleException(httpContext, e);
+            if (!handled) throw;
         }
     }
 
-    public async Task HandleException(HttpContext httpContext, Exception exception)
+    private static async Task<bool> HandleException(HttpContext httpContext, Exception exception)
     {
         if (exception is ValidationException)
         {
             httpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
             var problem = new Problem("The request did not validate correctly", exception.Message);
             await httpContext.Response.WriteAsync(JsonConvert.SerializeObject(problem));
+            return true;
         }
+
+        return false;
     }
 }
