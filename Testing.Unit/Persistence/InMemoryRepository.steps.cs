@@ -4,7 +4,7 @@ using Persistence;
 
 namespace Unit.Persistence;
 
-public partial class UserServiceSpecs : DbSpecification<UserServiceSpecs.Fake>
+public partial class InMemoryRepositorySpecs : DbSpecification<InMemoryRepositorySpecs.Fake>
 {
     public class Fake(Guid id, string wibble) : Aggregate(id)
     {

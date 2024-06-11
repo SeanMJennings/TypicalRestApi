@@ -13,7 +13,7 @@ public interface IAmAUserService
     public Task Remove(Guid id);
 }
 
-public class UserService(IAmARepository<User> repository) : IAmAUserService
+public class InMemoryRepository(IAmARepository<User> repository) : IAmAUserService
 {
     public async Task<User?> Get(Guid id)
     {
