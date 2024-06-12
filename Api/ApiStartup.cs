@@ -20,7 +20,7 @@ public class ApiStartup(WebApplicationBuilder Builder)
         
         Builder.Services.AddDbContext<DatabaseContext<User>>();
         Builder.Services.AddScoped<IAmARepository<User>, InMemoryRepository<User>>();
-        Builder.Services.AddScoped<IAmAUserService, InMemoryRepository>();
+        Builder.Services.AddScoped<IAmAUserService, UserService>();
 
         var app = Builder.Build();
 

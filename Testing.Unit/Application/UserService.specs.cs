@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace Unit.Application;
 
-public partial class InMemoryRepositorySpecs
+public partial class UserServiceSpecs
 {
    [Test]
    public void can_create_user()
