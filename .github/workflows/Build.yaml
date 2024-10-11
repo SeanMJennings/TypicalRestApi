@@ -1,0 +1,30 @@
+﻿name: Build
+on:
+  push:
+    branches: [ "main" ]
+jobs:
+  build_and_test:
+    runs-on: windows-latest # Would like to get SQL Local DB sorted for Ubuntu. Ubuntu is faster.
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.x
+      - name: Build
+        run: dotnet build
+      - name: Install Lightweight SQL Local DB - no Docker needed!
+        shell: pwsh
+        run: |
+          Import-Module BitsTransfer
+          Start-BitsTransfer `
+             -Source https://download.microsoft.com/download/3/8/d/38de7036-2433-4207-8eae-06e247e17b25/SqlLocalDB.msi `
+             -Destination SqlLocalDB.msi
+          Start-Process `
+             -FilePath "SqlLocalDB.msi" `
+             -ArgumentList "/qn", "/norestart", "/l*v SqlLocalDBInstall.log", "IACCEPTSQLLOCALDBLICENSETERMS=YES"; `
+          sqlcmd -l 60 -S "(LocalDb)\MSSQLLocalDB" -Q "SELECT @@VERSION;"
+      - name: Run Migrations
+        run: ./Migrations/bin/Debug/Migrations.exe
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
