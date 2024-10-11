@@ -69,7 +69,7 @@ public partial class UserSpecs : Specification
     private void the_user_is_created()
     {
         user.Id.Should().Be(id);
-        user.Name.ToString().Should().Be(valid_name);
+        user.FullName.ToString().Should().Be(valid_name);
         user.Email.ToString().Should().Be(valid_email);
     }
 }

@@ -1,19 +1,19 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Domain.Entities;
-using Persistence;
+using Repositories;
 
 namespace Application;
 
 public interface IAmAUserService
 {
     public Task<User?> Get(Guid id);
-    public Task<IReadOnlyList<User>> GetAll();
+    public Task<IList<User>> GetAll();
     public Task<Guid> Add(string name, string email);
     public Task Update(Guid id, string name, string email);
     public Task Remove(Guid id);
 }
 
-public class UserService(IAmARepository<User> repository) : IAmAUserService
+public class UserService(UserRepository repository) : IAmAUserService
 {
     public async Task<User?> Get(Guid id)
     {
@@ -21,7 +21,7 @@ public class UserService(IAmARepository<User> repository) : IAmAUserService
         return user;
     }
 
-    public async Task<IReadOnlyList<User>> GetAll()
+    public async Task<IList<User>> GetAll()
     {
         return await repository.GetAll();
     }

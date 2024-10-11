@@ -14,7 +14,7 @@ using NSubstitute.ExceptionExtensions;
 
 namespace Integration.Api;
 
-public partial class UserControllerSpecs : DbSpecification<User>
+public partial class UserControllerSpecs : Specification
 {
     private IAmAUserService user_service = null!;
     private IntegrationWebApplicationFactory<Program> factory = null!;
@@ -165,7 +165,7 @@ public partial class UserControllerSpecs : DbSpecification<User>
         var user = JsonConvert.DeserializeObject<User>(content.ReadAsStringAsync().GetAwaiter().GetResult());
         created_response_code.Should().Be(HttpStatusCode.Created);
         user!.Id.Should().Be(returned_id);
-        user.Name.ToString().Should().Be(name);
+        user.FullName.ToString().Should().Be(name);
         user.Email.ToString().Should().Be(email);
     }    
     
@@ -182,7 +182,7 @@ public partial class UserControllerSpecs : DbSpecification<User>
         var user = JsonConvert.DeserializeObject<User>(content.ReadAsStringAsync().GetAwaiter().GetResult());
         response_code.Should().Be(HttpStatusCode.OK);
         user!.Id.Should().Be(id);
-        user.Name.ToString().Should().Be(new_name);
+        user.FullName.ToString().Should().Be(new_name);
         user.Email.ToString().Should().Be(new_email);
     }    
     
@@ -192,10 +192,10 @@ public partial class UserControllerSpecs : DbSpecification<User>
         response_code.Should().Be(HttpStatusCode.OK);
         users!.Count.Should().Be(2);
         users[0].Id.Should().Be(id);
-        users[0].Name.ToString().Should().Be(name);
+        users[0].FullName.ToString().Should().Be(name);
         users[0].Email.ToString().Should().Be(email);        
         users[1].Id.Should().Be(another_id);
-        users[1].Name.ToString().Should().Be(new_name);
+        users[1].FullName.ToString().Should().Be(new_name);
         users[1].Email.ToString().Should().Be(new_email);
     }    
     

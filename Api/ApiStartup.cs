@@ -1,9 +1,8 @@
 ﻿using Api.Middleware;
 using Application;
 using Domain;
-using Domain.Entities;
-using Domain.Primitives;
 using Persistence;
+using Repositories;
 
 namespace Api;
 
@@ -17,9 +16,8 @@ public class ApiStartup(WebApplicationBuilder Builder)
         });
         Builder.Services.AddEndpointsApiExplorer();
         Builder.Services.AddSwaggerGen();
-        
-        Builder.Services.AddDbContext<DatabaseContext<User>>();
-        Builder.Services.AddScoped<IAmARepository<User>, InMemoryRepository<User>>();
+        Builder.Services.AddScoped<Db>(_ => new Db(Settings.Database.Connection));
+        Builder.Services.AddScoped<UserRepository>();
         Builder.Services.AddScoped<IAmAUserService, UserService>();
 
         var app = Builder.Build();

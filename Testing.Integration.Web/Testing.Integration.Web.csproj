@@ -20,5 +20,13 @@
         <PackageReference Include="NSubstitute" Version="5.1.0" />
         <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
     </ItemGroup>
+    
+    <ItemGroup>
+      <Content Update="appsettings.json">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+    </ItemGroup>
 
 </Project>

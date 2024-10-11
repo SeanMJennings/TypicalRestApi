@@ -1,7 +1,6 @@
-﻿using Framework;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
-namespace Unit.Application;
+namespace Integration.Db.Application;
 
 public partial class UserServiceSpecs
 {

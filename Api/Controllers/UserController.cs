@@ -10,7 +10,7 @@ namespace Api.Controllers;
 public class UserController(IAmAUserService UserService) : ControllerBase
 {
     [HttpGet]
-    public async Task<IReadOnlyList<User>> GetUsers()
+    public async Task<IList<User>> GetUsers()
     {
         return await UserService.GetAll();
     }    

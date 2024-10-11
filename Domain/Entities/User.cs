@@ -1,12 +1,13 @@
 ﻿using Domain.Primitives;
-using Persistence;
 
 namespace Domain.Entities;
 
-public class User(Guid id, Name name, Email email) : Aggregate(id)
+public class User(Guid id, Name fullName, Email email) : Aggregate(id)
 {
-    public Name Name { get; private set; } = name;
+    private User() : this(Guid.Empty, new Name(), new Email()) { }
+    
+    public Name FullName { get; private set; } = fullName;
     public Email Email { get; private set; } = email;
-    public void UpdateName(Name name) => Name = name;
+    public void UpdateName(Name name) => FullName = name;
     public void UpdateEmail(Email email) => Email = email;
 }
