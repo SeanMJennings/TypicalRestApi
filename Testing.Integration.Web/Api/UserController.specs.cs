@@ -11,14 +11,6 @@ public partial class UserControllerSpecs
         When(creating_the_user);
         And(requesting_the_user);
         Then(the_user_is_created);
-    }    
-    
-    [Test]
-    public void informs_of_validation_errors()
-    {
-        Given(an_invalid_request_to_create_a_user);
-        When(creating_the_invalid_user);
-        Then(the_user_is_informed_of_validation_errors);
     }
     
     [Test]

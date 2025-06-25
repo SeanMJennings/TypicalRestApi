@@ -9,7 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Api\Api.csproj" />
+      <ProjectReference Include="..\Host\Host.csproj" />
       <ProjectReference Include="..\Domain\Domain.csproj" />
     </ItemGroup>
     

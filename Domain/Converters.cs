@@ -5,9 +5,9 @@ namespace Domain;
 
 public static class Converters
 {
-    public static void AddConverters(IList<JsonConverter> converters)
-    {
-        converters.Add(new NameConverter());
-        converters.Add(new EmailConverter());
-    }
+    public static List<JsonConverter> GetConverters =>
+    [
+        new NameConverter(),
+        new EmailConverter()
+    ];
 }

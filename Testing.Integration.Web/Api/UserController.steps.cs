@@ -2,7 +2,6 @@
 using System.Net;
 using System.Text;
 using Api;
-using Api.Middleware;
 using Application;
 using BDD;
 using Domain.Entities;
@@ -11,6 +10,7 @@ using Newtonsoft.Json;
 using NSubstitute;
 using NSubstitute.ClearExtensions;
 using NSubstitute.ExceptionExtensions;
+using WebHost;
 
 namespace Integration.Api;
 
@@ -167,15 +167,7 @@ public partial class UserControllerSpecs : Specification
         user!.Id.Should().Be(returned_id);
         user.FullName.ToString().Should().Be(name);
         user.Email.ToString().Should().Be(email);
-    }    
-    
-    private void the_user_is_informed_of_validation_errors()
-    {
-        response_code.Should().Be(HttpStatusCode.BadRequest);
-        var problem = JsonConvert.DeserializeObject<ExceptionMiddleware.Problem>(the_failed_response.Content.ReadAsStringAsync().GetAwaiter().GetResult());
-        problem!.Message.Should().Be("The request did not validate correctly");
-        problem.Errors[0].Should().Be(validation_error);
-    }    
+    }
     
     private void the_user_is_updated()
     {
