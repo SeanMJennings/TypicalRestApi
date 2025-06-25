@@ -1,6 +1,7 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using BDD;
+using Microsoft.Data.SqlClient;
 
-namespace Framework;
+namespace Integration.Db;
 
 public class TruncateDbSpecification(string connectionString) : Specification
 {

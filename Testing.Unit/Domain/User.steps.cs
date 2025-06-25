@@ -1,6 +1,6 @@
-﻿using Domain.Entities;
+﻿using BDD;
+using Domain.Entities;
 using FluentAssertions;
-using Framework;
 
 namespace Unit.Domain;
 

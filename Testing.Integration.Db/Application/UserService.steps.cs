@@ -1,7 +1,6 @@
 ﻿using Application;
 using Domain.Entities;
 using FluentAssertions;
-using Framework;
 using Repositories;
 
 namespace Integration.Db.Application;
