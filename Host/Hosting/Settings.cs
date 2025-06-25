@@ -1,4 +1,4 @@
-﻿namespace Api;
+﻿namespace Api.Hosting;
 
 internal class Settings
 {

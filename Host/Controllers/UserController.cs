@@ -1,3 +1,4 @@
+using Api.Hosting;
 using Api.Requests;
 using Application;
 using Domain.Entities;

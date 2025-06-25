@@ -5,7 +5,7 @@ using Persistence;
 using Repositories;
 using WebHost;
 
-namespace Api;
+namespace Api.Hosting;
 
 internal sealed class CrudApi(WebApplicationBuilder webApplicationBuilder, IConfiguration configuration)
     : WebApi(webApplicationBuilder, configuration)

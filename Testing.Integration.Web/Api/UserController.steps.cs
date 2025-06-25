@@ -2,6 +2,7 @@
 using System.Net;
 using System.Text;
 using Api;
+using Api.Hosting;
 using Application;
 using BDD;
 using Domain.Entities;
