@@ -7,11 +7,10 @@ using WebHost;
 
 namespace Api.Hosting;
 
-internal sealed class CrudApi(WebApplicationBuilder webApplicationBuilder, IConfiguration configuration)
-    : WebApi(webApplicationBuilder, configuration)
+internal sealed class TypicalRestApi(WebApplicationBuilder webApplicationBuilder, IConfiguration configuration) : WebApi(webApplicationBuilder, configuration)
 {
     private readonly Settings _settings = new(configuration);
-    protected override string ApplicationName => nameof(CrudApi);
+    protected override string ApplicationName => nameof(TypicalRestApi);
     protected override string ApplicationInsightsConnectionString => _settings.ApplicationInsights.ConnectionString;
     protected override List<JsonConverter> JsonConverters => Converters.GetConverters;
 
