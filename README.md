@@ -7,6 +7,5 @@ Implement CRUD (Create, Read, Update and Delete) functionality and the correspon
 
 ## Ideas for expansion
 - Add more details to user: password (hashed), address, and mobile.
-- Add logging.
 - SPA frontend application over UI.
 - CQRS: Separate write and read models for user.
