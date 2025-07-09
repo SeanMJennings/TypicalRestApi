@@ -58,12 +58,6 @@ public partial class UserControllerSpecs : Specification
     {
         create_content(name, email);
         user_service.Add(name, email).Returns(id);
-    }    
-    
-    private void an_invalid_request_to_create_a_user()
-    {
-        create_content(invalid_name, invalid_email);
-        user_service.Add(invalid_name, invalid_email).Throws(new ValidationException(validation_error));
     }
 
     private void create_content(string the_name, string the_email)
@@ -93,13 +87,7 @@ public partial class UserControllerSpecs : Specification
         var response = client.PostAsync(Routes.User, content).GetAwaiter().GetResult();
         created_response_code = response.StatusCode;
         returned_id = JsonConvert.DeserializeObject<Guid>(response.Content.ReadAsStringAsync().GetAwaiter().GetResult());
-    }    
-    
-    private void creating_the_invalid_user()
-    {
-        the_failed_response = client.PostAsync(Routes.User, content).GetAwaiter().GetResult();
-        response_code = the_failed_response.StatusCode;
-    }    
+    }
     
     private void creating_another_user()
     {
