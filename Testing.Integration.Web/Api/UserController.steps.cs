@@ -1,7 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Net;
+﻿using System.Net;
 using System.Text;
-using Api;
 using Api.Hosting;
 using Application;
 using BDD;
@@ -10,8 +8,6 @@ using FluentAssertions;
 using Newtonsoft.Json;
 using NSubstitute;
 using NSubstitute.ClearExtensions;
-using NSubstitute.ExceptionExtensions;
-using WebHost;
 
 namespace Integration.Api;
 
@@ -27,13 +23,9 @@ public partial class UserControllerSpecs : Specification
     private readonly Guid another_id = Guid.NewGuid();
     private HttpStatusCode created_response_code;
     private HttpStatusCode response_code;
-    private HttpResponseMessage the_failed_response = null!;
     private const string application_json = "application/json";
-    private const string validation_error = "The name was empty!";
     private const string name = "wibble";
     private const string email = "wobble@gmail.com";    
-    private readonly string invalid_name = string.Empty;
-    private const string invalid_email = "oops";
     private const string new_name = "wobble";
     private const string new_email = "wibble@gmail.com";
 
@@ -48,8 +40,7 @@ public partial class UserControllerSpecs : Specification
     {
         base.before_each();
         content = null!;
-        returned_id = default;
-        the_failed_response = null!;
+        returned_id = Guid.Empty;
         user_service.ClearReceivedCalls();
         user_service.ClearSubstitute();
     }
