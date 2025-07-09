@@ -1,6 +1,6 @@
-﻿using Application;
+﻿using System.Text.Json.Serialization;
+using Application;
 using Domain;
-using Newtonsoft.Json;
 using Persistence;
 using Repositories;
 using WebHost;

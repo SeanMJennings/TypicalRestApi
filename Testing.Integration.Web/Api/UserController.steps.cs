@@ -5,7 +5,6 @@ using Application;
 using BDD;
 using Domain.Entities;
 using FluentAssertions;
-using Newtonsoft.Json;
 using NSubstitute;
 using NSubstitute.ClearExtensions;
 
@@ -77,13 +76,13 @@ public partial class UserControllerSpecs : Specification
     {
         var response = client.PostAsync(Routes.User, content).GetAwaiter().GetResult();
         created_response_code = response.StatusCode;
-        returned_id = JsonConvert.DeserializeObject<Guid>(response.Content.ReadAsStringAsync().GetAwaiter().GetResult());
+        returned_id = JsonSerialization.Deserialize<Guid>(response.Content.ReadAsStringAsync().GetAwaiter().GetResult());
     }
     
     private void creating_another_user()
     {
         var response = client.PostAsync(Routes.User, content).GetAwaiter().GetResult();
-        JsonConvert.DeserializeObject<Guid>(response.Content.ReadAsStringAsync().GetAwaiter().GetResult());
+        JsonSerialization.Deserialize<Guid>(response.Content.ReadAsStringAsync().GetAwaiter().GetResult());
     }      
     
     private void updating_the_user()
@@ -142,27 +141,27 @@ public partial class UserControllerSpecs : Specification
 
     private void the_user_is_created()
     {
-        var user = JsonConvert.DeserializeObject<User>(content.ReadAsStringAsync().GetAwaiter().GetResult());
+        var user = JsonSerialization.Deserialize<User>(content.ReadAsStringAsync().GetAwaiter().GetResult());
         created_response_code.Should().Be(HttpStatusCode.Created);
-        user!.Id.Should().Be(returned_id);
+        user.Id.Should().Be(returned_id);
         user.FullName.ToString().Should().Be(name);
         user.Email.ToString().Should().Be(email);
     }
     
     private void the_user_is_updated()
     {
-        var user = JsonConvert.DeserializeObject<User>(content.ReadAsStringAsync().GetAwaiter().GetResult());
+        var user = JsonSerialization.Deserialize<User>(content.ReadAsStringAsync().GetAwaiter().GetResult());
         response_code.Should().Be(HttpStatusCode.OK);
-        user!.Id.Should().Be(id);
+        user.Id.Should().Be(id);
         user.FullName.ToString().Should().Be(new_name);
         user.Email.ToString().Should().Be(new_email);
     }    
     
     private void the_users_are_listed()
     {
-        var users = JsonConvert.DeserializeObject<IReadOnlyList<User>>(content.ReadAsStringAsync().GetAwaiter().GetResult());
+        var users = JsonSerialization.Deserialize<IReadOnlyList<User>>(content.ReadAsStringAsync().GetAwaiter().GetResult());
         response_code.Should().Be(HttpStatusCode.OK);
-        users!.Count.Should().Be(2);
+        users.Count.Should().Be(2);
         users[0].Id.Should().Be(id);
         users[0].FullName.ToString().Should().Be(name);
         users[0].Email.ToString().Should().Be(email);        

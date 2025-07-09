@@ -1,5 +1,5 @@
-﻿using Domain.Primitives;
-using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
+using Domain.Primitives;
 
 namespace Domain;
 

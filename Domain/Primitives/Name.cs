@@ -1,9 +1,10 @@
-﻿using System.Text.RegularExpressions;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Text.RegularExpressions;
 
 namespace Domain.Primitives;
 
+[JsonConverter(typeof(NameConverter))]
 public readonly record struct Name
 {
     private string value { get; }
@@ -36,14 +37,13 @@ public readonly record struct Name
 
 public class NameConverter : JsonConverter<Name>
 {
-    public override void WriteJson(JsonWriter writer, Name value, JsonSerializer serializer)
+    public override void Write(Utf8JsonWriter writer, Name value, JsonSerializerOptions options)
     {
-        JValue.CreateString(value!.ToString()).WriteTo(writer);
+        writer.WriteStringValue(value.ToString());
     }
 
-    public override Name ReadJson(JsonReader reader, Type objectType, Name existingValue, bool hasExistingValue,
-        JsonSerializer serializer)
+    public override Name Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
-        return reader.Value!.ToString()!;
+        return reader.GetString()!;
     }
 }
