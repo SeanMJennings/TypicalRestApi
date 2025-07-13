@@ -10,7 +10,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="WebApi.Host" Version="1.0.7" />
+        <PackageReference Include="WebApi.Host" Version="1.0.10" />
     </ItemGroup>
 
     <ItemGroup>
