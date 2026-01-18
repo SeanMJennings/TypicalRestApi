@@ -1,9 +1,9 @@
-﻿using System.Data;
+using System.Data;
 using Dapper;
 using Domain.Primitives;
 using Microsoft.Data.SqlClient;
 
-namespace Persistence.TypeHandlers;
+namespace Infrastructure.Persistence.TypeHandlers;
 
 public class EmailHandler : SqlMapper.TypeHandler<Email>
 {

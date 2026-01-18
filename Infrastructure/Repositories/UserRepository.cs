@@ -1,9 +1,10 @@
-﻿using Domain.Entities;
-using Persistence;
+using Domain.Entities;
+using Domain.Repositories;
+using Infrastructure.Persistence;
 
-namespace Repositories;
+namespace Infrastructure.Repositories;
 
-public class UserRepository(Db db)
+public class UserRepository(Db db) : IUserRepository
 {
     public async Task Save(User user)
     {

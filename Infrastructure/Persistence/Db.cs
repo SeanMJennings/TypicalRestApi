@@ -1,10 +1,10 @@
-﻿using System.Data;
+using System.Data;
 using Dapper;
 using Domain;
 using Microsoft.Data.SqlClient;
-using Persistence.TypeHandlers;
+using Infrastructure.Persistence.TypeHandlers;
 
-namespace Persistence
+namespace Infrastructure.Persistence
 {
     public class Db
     {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Domain.Entities;
-using Repositories;
+using Domain.Repositories;
 
 namespace Application;
 
@@ -13,7 +13,7 @@ public interface IAmAUserService
     public Task Remove(Guid id);
 }
 
-public class UserService(UserRepository repository) : IAmAUserService
+public class UserService(IUserRepository repository) : IAmAUserService
 {
     public async Task<User?> Get(Guid id)
     {

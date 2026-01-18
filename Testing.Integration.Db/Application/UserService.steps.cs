@@ -1,7 +1,9 @@
 ﻿using Application;
 using Domain.Entities;
+using Domain.Repositories;
 using FluentAssertions;
-using Repositories;
+using Infrastructure.Persistence;
+using Infrastructure.Repositories;
 
 namespace Integration.Db.Application;
 
@@ -11,7 +13,7 @@ public partial class UserServiceSpecs() : TruncateDbSpecification(Settings.Datab
     private Guid another_id;
     private User retrieved_entity = null!;
     private IList<User> entities = null!;
-    private UserRepository repository = null!;
+    private IUserRepository repository = null!;
     private UserService _userService = null!;
 
     private const string name = "wibble";
@@ -26,7 +28,7 @@ public partial class UserServiceSpecs() : TruncateDbSpecification(Settings.Datab
         another_id = default;
         entities = null!;
         retrieved_entity = null!;
-        repository = new UserRepository(new Persistence.Db(Settings.Database.Connection));
+        repository = new UserRepository(new Infrastructure.Persistence.Db(Settings.Database.Connection));
         _userService = new UserService(repository);
     }
     

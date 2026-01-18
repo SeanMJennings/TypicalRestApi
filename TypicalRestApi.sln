@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Host", "Host\Host.csproj", "{40644EEE-4D7F-4800-B68D-9087AFBA0E49}"
 EndProject
@@ -23,9 +23,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Migrations", "Migrations\Mi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing.Integration.Db", "Testing.Integration.Db\Testing.Integration.Db.csproj", "{4F6F7CDE-1899-4F56-A721-E2CF8B69079E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Repositories\Repositories.csproj", "{ACC420DA-FA06-4351-A2F1-2E467DF316E9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "Persistence\Persistence.csproj", "{06C95A91-9DE0-4099-AE8C-590D989014C3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{B8F5E3A1-7C2D-4E9F-A1B3-5D6E8F9C0A2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,14 +59,10 @@ Global
 		{4F6F7CDE-1899-4F56-A721-E2CF8B69079E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F6F7CDE-1899-4F56-A721-E2CF8B69079E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F6F7CDE-1899-4F56-A721-E2CF8B69079E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ACC420DA-FA06-4351-A2F1-2E467DF316E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ACC420DA-FA06-4351-A2F1-2E467DF316E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ACC420DA-FA06-4351-A2F1-2E467DF316E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ACC420DA-FA06-4351-A2F1-2E467DF316E9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{06C95A91-9DE0-4099-AE8C-590D989014C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{06C95A91-9DE0-4099-AE8C-590D989014C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{06C95A91-9DE0-4099-AE8C-590D989014C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{06C95A91-9DE0-4099-AE8C-590D989014C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8F5E3A1-7C2D-4E9F-A1B3-5D6E8F9C0A2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8F5E3A1-7C2D-4E9F-A1B3-5D6E8F9C0A2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8F5E3A1-7C2D-4E9F-A1B3-5D6E8F9C0A2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8F5E3A1-7C2D-4E9F-A1B3-5D6E8F9C0A2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8E2954D8-CE9F-4CEB-9A6D-7E4265E8B320} = {A9E5EBD2-F136-4009-8BA3-183C3FACC9EE}
